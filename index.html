@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Audio Visualiser</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Circle Audio Visualiser</h1>
+        <p>Load a song and tune the bass, mid, and treble cutoffs to sculpt the visual waveforms.</p>
+      </header>
+
+      <section class="controls">
+        <label class="file-control">
+          <span>Audio file</span>
+          <input id="audioFile" type="file" accept="audio/*" />
+        </label>
+
+        <div class="slider-group">
+          <label>
+            Bass cutoff (Hz)
+            <input id="bassCutoff" type="range" min="60" max="800" value="200" />
+            <span class="value" id="bassValue">200 Hz</span>
+          </label>
+          <label>
+            Mid center (Hz)
+            <input id="midCenter" type="range" min="500" max="4000" value="1400" />
+            <span class="value" id="midValue">1400 Hz</span>
+          </label>
+          <label>
+            Treble cutoff (Hz)
+            <input id="trebleCutoff" type="range" min="2000" max="12000" value="6000" />
+            <span class="value" id="trebleValue">6000 Hz</span>
+          </label>
+        </div>
+      </section>
+
+      <section class="visualiser">
+        <canvas id="visualiserCanvas" width="720" height="720" aria-label="Audio visualiser"></canvas>
+        <div class="legend">
+          <span class="legend-item bass">Bass</span>
+          <span class="legend-item mid">Mid</span>
+          <span class="legend-item treble">Treble</span>
+        </div>
+      </section>
+
+      <section class="playback">
+        <audio id="audio" controls></audio>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
